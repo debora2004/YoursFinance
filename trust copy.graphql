@@ -1,0 +1,29 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  transactions: [Transaction!]!
+}
+
+type Transaction {
+  id: ID!
+  type: TransactionType!
+  amount: Float!
+  date: Date!
+  description: String!
+  category: TransactionCategory!
+  user: User!
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum TransactionCategory {
+  HOUSING
+  FOOD
+  TRANSPORTATION
+  ENTERTAINMENT
+  OTHER
+}

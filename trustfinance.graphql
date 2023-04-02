@@ -1,0 +1,29 @@
+type Usuario { id: ID! nombre: String! 
+correoElectronico: String! contraseña: 
+: [RegistroFinanciero]!
+}
+
+type RegistroFinanciero {
+  id: ID!
+  usuarioId: ID!
+  tipo: String!
+  categoría: String!
+  monto: Float!
+  fecha: String!
+}
+
+input Consulta {
+  fechaInicio: String!
+  fechaFin: String!
+  categoria: String!
+}
+
+type Mutation {
+  registrarRegistroFinanciero(usuarioId: ID!, tipo: String!, 
+  categoría: String!, 
+  monto: Float!, fecha: String!): RegistroFinanciero!
+}
+
+type Query {
+  obtenerRegistrosFinancieros(usuarioId: ID!, consulta: Consulta): [RegistroFinanciero]!
+}

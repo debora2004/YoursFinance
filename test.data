@@ -1,0 +1,36 @@
+young rival degree buddy portion jealous around sponsor round hard basic own
+
+address: 0x205232bf3054156674a2e7a30619cff7a5cec90a
+privateKey: 0x7d7110dea57267c3767f944e6721ab24cbe4d2c728600e7b5c7ce0f0fe8d43cb
+
+- C.database_contract_address '0xd760aff2961eda1b5752403c1d2149d8c98d2729'
+- C.lib_contract_address '0xe9e1d6b9106342523563225693609f5871f24633'
+
+-----------------
+
+Paso a paso:
+
+Deployamos en mumbai 
+
+cedalio deploy --schema-file ./trust.graphql --network polygon-mumbai
+
+- C.deployment_saved
+- C.database_contract_address '0xb64db33131657af0c8ab9fb8a7aedcfa31734d65'
+- C.lib_contract_address '0xe9e1d6b9106342523563225693609f5871f24633'
+- C.see_database_contract 'https://mumbai.polygonscan.com/address/0xb64db33131657af0c8ab9fb8a7aedcfa31734d65'
+
+
+C.launch_serve
+   cedalio serve --schema-name trustDev2
+
+curl -v -H 'Content-Type: application/json' \
+    -d '{"query":"query { allTodos { id  } }"}' \
+    'http://localhost:8080/graphql'
+
+
+curl -v -H 'Content-Type: application/json' \
+     -d '{"query":"mutation { createTodo(todo: { type:\"Something\", amount\"Something\", date\"Something\", description \"Something\",category:\"Something\", owner:\"0x305d4bcaE378094F1923f8BB352824D9496510b1\"\n}) { id type amount date description category} }"}' \
+     'http://localhost:8080/graphql'
+
+- C.database_contract_address '0xce001373d4aa3edec2681d13c2adbe4e467ada0f'
+- C.lib_contract_address '0xe9e1d6b9106342523563225693609f5871f24633'

@@ -1,0 +1,9 @@
+type Transaction {
+  id: UUID!
+  type: String!
+  amount: String!
+  date: String!
+  description: String!
+  category: String!
+  owner: String!
+}
